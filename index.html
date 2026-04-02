@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thursday Ritual • 27 Weeks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+        body { 
+            font-family: 'Roboto', system-ui, sans-serif; 
+            background: linear-gradient(180deg, #f8f1e3 0%, #f5e8d0 100%); 
+            margin: 0; padding: 15px; 
+        }
+        .container { 
+            max-width: 720px; margin: 0 auto; background: white; border-radius: 20px; 
+            box-shadow: 0 8px 30px rgba(212,160,23,0.15); padding: 25px; 
+        }
+        .header { text-align: center; padding: 15px 0; border-bottom: 3px solid #d4a017; margin-bottom: 25px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: #6b4e31; margin: 0; }
+        .subtitle { color: #ff9933; font-size: 16px; }
+        .om-symbol { font-size: 48px; color: #d4a017; margin-bottom: 10px; }
+        .note { 
+            font-size: 15px; color: #c41e3a; text-align: center; background: #fffaf0; 
+            padding: 14px; border-radius: 12px; margin: 20px 0; 
+        }
+        .mantra-item { 
+            display: flex; align-items: center; justify-content: space-between; 
+            background: #fffaf0; padding: 18px; border-radius: 16px; margin: 12px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .mantra-name { flex: 1; font-size: 17px; line-height: 1.4; }
+        .mantra-timer { 
+            font-size: 32px; font-weight: 700; color: #c41e3a; min-width: 110px; 
+            text-align: center; margin: 0 12px;
+        }
+        button { 
+            background: #d4a017; color: white; border: none; padding: 14px 22px; 
+            border-radius: 14px; font-size: 16px; cursor: pointer; 
+        }
+        .step { 
+            margin: 14px 0; padding: 18px; background: #fffaf0; border-left: 7px solid #d4a017; 
+            border-radius: 14px; cursor: pointer; font-size: 17px;
+        }
+        .step.completed { background: #e6f4ea; border-left-color: #34a853; text-decoration: line-through; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="om-symbol">ॐ</div>
+            <h1>Thursday Sadhana</h1>
+            <p class="subtitle">27 Weeks • Pt. Anand Maharaj • Richmond Hill, NY</p>
+        </div>
+
+        <h2>1. Offer Water on a Plant</h2>
+        <div class="step" onclick="this.classList.toggle('completed')">
+            Chant: <strong>OM BHRING BRIHAS PATI YEA NAMAH</strong> until all water is finished.<br>
+            <button onclick="speak('OM BHRING BRIHAS PATI YEA NAMAH'); event.stopImmediatePropagation()">🔊 Voice Chant</button>
+        </div>
+
+        <h2>2. Tabeej and Offerings</h2>
+        <div class="step" onclick="this.classList.toggle('completed')">01-06: Wash Tabeej (Water, Milk, Ghand Toyam, Shudh, Ganga Jal, Dry)</div>
+        <div class="step" onclick="this.classList.toggle('completed')">07-12: Offer Chandan, Hardi, Sindoor, Flower, Agarbatti, Arti with Till Oil</div>
+        <div class="step highlight" onclick="this.classList.toggle('completed')">13 - Offer Fruit as Prasad — <span class="highlight">DON’T EAT IT!</span></div>
+        <div class="step" onclick="this.classList.toggle('completed')">14 - Offer Tulsi Leaf</div>
+        <div class="step" onclick="this.classList.toggle('completed')">15 - Offer Coin</div>
+
+        <h2>3. Chant Mantras</h2>
+        <div class="note">⚠️ KEEP SCREEN ON (Auto-Lock = Never) — Timers may pause if you lock the phone or switch apps</div>
+
+        <!-- Individual Mantra Timers -->
+        <div class="mantra-item">
+            <div class="mantra-name">OM SHANI YEA NAMAH<br><small>19 minutes</small></div>
+            <div class="mantra-timer" id="timer1">00:00</div>
+            <button onclick="startMantra(19*60, 'timer1')">Start</button>
+        </div>
+
+        <div class="mantra-item">
+            <div class="mantra-name">OM BUDH AYA NAMAH<br><small>17 minutes</small></div>
+            <div class="mantra-timer" id="timer2">00:00</div>
+            <button onclick="startMantra(17*60, 'timer2')">Start</button>
+        </div>
+
+        <div class="mantra-item">
+            <div class="mantra-name">OM KETU WAY NAMAH<br><small>7 minutes</small></div>
+            <div class="mantra-timer" id="timer3">00:00</div>
+            <button onclick="startMantra(7*60, 'timer3')">Start</button>
+        </div>
+
+        <div class="mantra-item">
+            <div class="mantra-name">OM SHUK RAA YA NAMAH<br><small>20 minutes</small></div>
+            <div class="mantra-timer" id="timer4">00:00</div>
+            <button onclick="startMantra(20*60, 'timer4')">Start</button>
+        </div>
+
+        <div class="mantra-item">
+            <div class="mantra-name">OM SURYA YA NAMAH<br><small>6 minutes</small></div>
+            <div class="mantra-timer" id="timer5">00:00</div>
+            <button onclick="startMantra(6*60, 'timer5')">Start</button>
+        </div>
+
+        <div class="mantra-item">
+            <div class="mantra-name">OM SOAM AYA NAMAH<br><small>10 minutes</small></div>
+            <div class="mantra-timer" id="timer6">00:00</div>
+            <button onclick="startMantra(10*60, 'timer6')">Start</button>
+        </div>
+
+        <div class="mantra-item">
+            <div class="mantra-name">OM MANGALAYA NAMAH<br><small>7 minutes</small></div>
+            <div class="mantra-timer" id="timer7">00:00</div>
+            <button onclick="startMantra(7*60, 'timer7')">Start</button>
+        </div>
+
+        <div class="mantra-item">
+            <div class="mantra-name">OM RAA HU WAY NAMAH<br><small>18 minutes</small></div>
+            <div class="mantra-timer" id="timer8">00:00</div>
+            <button onclick="startMantra(18*60, 'timer8')">Start</button>
+        </div>
+
+        <div class="mantra-item">
+            <div class="mantra-name">OM BHRIHASPATIEA NAMAH<br><small>3 minutes</small></div>
+            <div class="mantra-timer" id="timer9">00:00</div>
+            <button onclick="startMantra(3*60, 'timer9')">Start</button>
+        </div>
+
+        <h2>4. Final Step</h2>
+        <div class="step" onclick="this.classList.toggle('completed')">18 - Keep Fast</div>
+
+        <button onclick="completeThursday()" class="big-button" style="width:100%; padding:20px; font-size:20px; background:#34a853; margin-top:20px;">
+            ✅ Mark Today’s Thursday Complete (+1 Week)
+        </button>
+    </div>
+
+    <script>
+        let activeTimers = {};
+
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.85;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function startMantra(seconds, timerId) {
+            // Stop any existing timer for this slot
+            if (activeTimers[timerId]) clearInterval(activeTimers[timerId]);
+
+            let startTime = Date.now();
+            activeTimers[timerId] = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                let remaining = Math.max(0, seconds - elapsed);
+                const min = Math.floor(remaining / 60);
+                const sec = remaining % 60;
+                const el = document.getElementById(timerId);
+                if (el) el.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+
+                if (remaining <= 0) {
+                    clearInterval(activeTimers[timerId]);
+                    delete activeTimers[timerId];
+                    alert("Mantra time complete. Om Shanti 🙏");
+                }
+            }, 200);
+            speak("Starting mantra timer.");
+        }
+
+        function completeThursday() {
+            if (confirm("Mark this Thursday as complete and advance your 27-week progress?")) {
+                alert("✅ Week saved! Great work on your sadhana.");
+            }
+        }
+    </script>
+</body>
+</html>
